@@ -220,8 +220,6 @@ Email templates should use `@seek/braid-email-ui` components for all standard pa
 - Apply CSS `box-shadow` — email clients do not support it reliably (§7).
 - Embed images — serve from a CDN (§11).
 
-Shared rules: [design system overview §9](systems.md#9-custom-and-bespoke).
-
 ---
 
 ## 10. Email clients & testing

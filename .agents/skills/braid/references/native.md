@@ -8,6 +8,7 @@ Platform-specific guide for Braid on **Native Apps (iOS and Android)**. For shar
 
 ### Section map
 
+
 | §   | Topic                  |
 | --- | ---------------------- |
 | 1   | Visual theme & style   |
@@ -20,6 +21,7 @@ Platform-specific guide for Braid on **Native Apps (iOS and Android)**. For shar
 | 8   | Accessibility          |
 | 9   | Custom and bespoke     |
 | 10  | Haptics                |
+
 
 ---
 
@@ -37,6 +39,7 @@ Shared brand intent for **SEEK Jobs** is in the [design system overview §1](sys
 
 Colour tokens are organised by **group**. Each group defines where a token applies in the UI.
 
+
 | Group     | Role                                   |
 | --------- | -------------------------------------- |
 | `Surface` | Page/screen backgrounds, cards, sheets |
@@ -46,7 +49,9 @@ Colour tokens are organised by **group**. Each group defines where a token appli
 | `Icon`    | Icon tints                             |
 | `Overlay` | Press/interaction states               |
 
+
 ### Prominence levels
+
 
 | Level     | Role                                        |
 | --------- | ------------------------------------------- |
@@ -55,30 +60,37 @@ Colour tokens are organised by **group**. Each group defines where a token appli
 | `(base)`  | Badge regular, IconButton soft              |
 | `Strong`  | Solid button backgrounds, Badge strong      |
 
+
 ### Naming conventions
+
 
 | Platform | Pattern                                              | Example                             |
 | -------- | ---------------------------------------------------- | ----------------------------------- |
 | iOS      | `SemanticColor.{Group}.{tone}{Level}` (camelCase)    | `SemanticColor.Fill.criticalStrong` |
 | Android  | `Colors.{Group}.{Tone}{Level}` (PascalCase compound) | `Colors.Fill.CriticalStrong`        |
 
+
 ### Surface context
 
 On coloured surfaces, text and icon tokens behave differently by platform:
 
+
 | Platform | Rule                                                                                                                              | Examples                                       |
 | -------- | --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
 | Android  | Text and icon tokens **auto-resolve** for the current surface — no separate token for brand or strong backgrounds                 | `Text.Primary`, `Icon.Default`                 |
-| iOS      | Use explicit `**onBrand`** / `**onStrong\*\*`tokens on coloured surfaces —`Text.primary` on a dark or coloured fill is unreadable | `Text.onBrandPrimary`, `Text.onCriticalStrong` |
+| iOS      | Use explicit `**onBrand`** / `**onStrong\*\`*tokens on coloured surfaces —`Text.primary` on a dark or coloured fill is unreadable | `Text.onBrandPrimary`, `Text.onCriticalStrong` |
+
 
 ## 3. Typography
 
 ### Font family
 
+
 | Platform | Font family / typeface                                                      | Weights                                                                   |
 | -------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | iOS      | `SEEKSans-Regular` / `SEEKSans-Medium` / `SEEKSans-Bold` (PostScript names) | regular `.regular`, strong `.medium` (~600), headings `.medium`           |
 | Android  | `seeksans_regular` / `seeksans_medium` (Bold mapped to medium file)         | regular `Normal`, strong `Bold` (uses medium font asset), headings `Bold` |
+
 
 **Note:** iOS **strong** text resolves to the Medium weight, not Bold. Android's **Bold** font weight likewise maps to the Medium `.ttf` asset — the font file itself is the cap.
 
@@ -86,10 +98,12 @@ iOS sizes are in **pt**; Android sizes are in **sp**. Typography is fixed on bot
 
 #### Heading weight
 
+
 | Platform | Heading weight            |
 | -------- | ------------------------- |
 | iOS      | `.medium`                 |
 | Android  | `Bold` (medium font file) |
+
 
 Android line heights follow a consistent **1.5×** ratio.
 
@@ -97,11 +111,13 @@ Android line heights follow a consistent **1.5×** ratio.
 
 Shared rules: [design system overview — Text weight](systems.md#text-weight).
 
+
 | Weight    | iOS        | Android                              |
 | --------- | ---------- | ------------------------------------ |
 | `regular` | `.regular` | `FontWeight.Normal`                  |
 | `medium`  | `.medium`  | not supported                        |
 | `strong`  | `.medium`  | `FontWeight.Bold` (medium font file) |
+
 
 Both `medium` and `strong` resolve to the **Medium** font file on iOS. Use `stong` for emphasis and avoid using `medium`.
 
@@ -109,18 +125,21 @@ On Android, only `regular` and `strong` are available; `strong` also uses the me
 
 ### Line height model
 
+
 | Platform | Model                                                                                                                                       |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | iOS      | No per-style `lineHeight` in tokens. Global `lineSpacing`: **3pt** applied via `NSParagraphStyle`. Dynamic Type scales via `UIFontMetrics`. |
 | Android  | Explicit `lineHeight` in **sp** per style (stored in `SeekJobsTypographySet`). Compose **sp** units scale with system font size preference. |
 
+
 ---
 
 ## 4. Layout and space scale
 
-**Token path:** `Spacing.`\*. iOS values are in **pt**; Android values are in **dp**.
+**Token path:** `Spacing.`. iOS values are in **pt**; Android values are in **dp**.
 
 ### Layout components
+
 
 | Component           | Platform | Purpose                                                                   |
 | ------------------- | -------- | ------------------------------------------------------------------------- |
@@ -133,6 +152,7 @@ On Android, only `regular` and `strong` are available; `strong` also uses the me
 | `Surface`           | Android  | Themed background container with colour propagation and optional border   |
 | `BraidScaffold`     | Android  | App scaffold wrapping toolbar, bottom nav, FAB, and snackbar in a Surface |
 
+
 - Native apps don't use breakpoint tokens — adapt layout via stacks, scroll containers, and sheets; text scales via Dynamic Type / system font preferences.
 - iOS layout is spacing-first: Braid provides token-aware overloads for native `VStack`, `HStack`, `LazyVStack`, `LazyHStack`, `Grid`, and `EdgeInsets` rather than replacing them with custom layout types.
 - Android's `Surface` is the closest native equivalent to web's `Box` — it handles background colour, shape, and surface context propagation for nested colour tokens.
@@ -144,10 +164,12 @@ On Android, only `regular` and `strong` are available; `strong` also uses the me
 
 ### Naming conventions
 
+
 | Platform | Pattern                                       | Example              |
 | -------- | --------------------------------------------- | -------------------- |
 | iOS      | `BraidIconAsset.{name}` enum case (camelCase) | `BraidIconAsset.add` |
 | Android  | `Icons.{name}` (camelCase)                    | `Icons.add`          |
+
 
 ### Available icons
 
@@ -161,14 +183,17 @@ AI · Add · Arrow · Attachment · Bluetooth · Bold · Bookmark · BulletList 
 
 All icons share these props:
 
+
 | Prop                                        | iOS                     | Android             | Notes                                                                                   |
 | ------------------------------------------- | ----------------------- | ------------------- | --------------------------------------------------------------------------------------- |
 | `asset`                                     | `BraidIconAsset.{name}` | `Icons.{name}`      | Required — see Available icons                                                          |
 | `size`                                      | `.standard`, `.small`   | `Standard`, `Small` | Standalone only — do not set when icon is inline with text (inherits size from context) |
-| `foregroundColor` / `tint`                  | `SemanticColor.Icon.`\* | `IconColor.`\*      | Token-based colour only — overrides inherited text tone                                 |
+| `foregroundColor` / `tint`                  | `SemanticColor.Icon.`   | `IconColor.`        | Token-based colour only — overrides inherited text tone                                 |
 | `accessibilityLabel` / `contentDescription` | `String?`               | `String?`           | Accessible label — provide only when icon conveys meaning without adjacent text         |
 
+
 ### Variant props (select icons only)
+
 
 | Icon                                                             | Extra prop  | Type                                    | Default     |
 | ---------------------------------------------------------------- | ----------- | --------------------------------------- | ----------- |
@@ -179,6 +204,7 @@ All icons share these props:
 | Visibility                                                       | `hidden`    | `boolean`                               | `false`     |
 | Bookmark, Career, Company, Enlarge, Heart, People, Profile, Star | `active`    | `boolean`                               | `false`     |
 
+
 ---
 
 ## 6. Components
@@ -186,6 +212,7 @@ All icons share these props:
 ### Props reference
 
 This table shows commonly used components and their key props by platform. Do not invent props — see the installed Braid package for full type definitions.
+
 
 | iOS                   | iOS properties                                                                                                        | Android               | Android properties                                                                                                                 |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -200,6 +227,7 @@ This table shows commonly used components and their key props by platform. Do no
 | `Divider`             | `width` · `indentationLevel` · `dividerColor`                                                                         | `Divider`             | `style` · `color`                                                                                                                  |
 | `TextField`           | `label` · `secondaryLabel` · `message` · `tone` · `value` · `placeholder` · `icon` · `isEnabled`                      | `TextField`           | `value` · `label` · `secondaryLabel` · `placeholder` · `message` · `tone` · `enabled` · `onValueChanged` · `startIcon` · `testTag` |
 | `MultiSelectListItem` | `title` · `subtitle` · `icon` · `isSelected` · `indentationLevel` · `isWithDivider`                                   | `MultiSelectListItem` | `title` · `subtitle` · `isSelected` · `onClick` · `icon` · `divider` · `indentationLevel` · `testTag`                              |
+
 
 On iOS, use `Label` with `typography` `.heading1` or `.heading2` for headings.
 
@@ -228,11 +256,13 @@ Some components apply **local shadow styling** (e.g. Android `Menu` uses a compo
 
 Field focus uses **border colour tokens**, not a global focus ring.
 
+
 | State           | iOS                                   | Android                        |
 | --------------- | ------------------------------------- | ------------------------------ |
 | Default border  | `SemanticColor.Border.neutralStrong`  | `Colors.Border.NeutralRegular` |
 | Focused border  | `SemanticColor.Border.formAccent`     | `Colors.Border.FormAccent`     |
 | Critical border | `SemanticColor.Border.criticalStrong` | `Colors.Border.CriticalStrong` |
+
 
 **Android** focused fields also use a slightly thicker border (`Border.Default.width + 1.dp`). Focused field labels use `Colors.Text.FormAccent`.
 
@@ -254,21 +284,20 @@ Tab bar shadow is configured via `UITabBar.applyBraidAppearance` using `Surface.
 
 ## 9. Custom and bespoke
 
-Native apps should use **Braid Native components** first. Custom UI must still use **semantic tokens** and platform layout patterns — not hardcoded colours or arbitrary spacing.
+Follow [systems.md §9](systems.md#9-custom-and-bespoke): prefer Braid Native components; build on **theme tokens**, not hardcoded values. Bespoke UI shared across apps belongs in a Metropolis satellite package (`BraidAIElements` on iOS, `seek.braid:ai-elements` on Android) — not copied into each codebase.
 
 ### Allowed custom patterns
 
-- **iOS:** compose with `VStack`, `HStack`, `Label`, and `SemanticColor` / `Spacing` tokens.
-- **Android:** compose with Compose `Column`/`Row`, Braid `Surface`, and `Colors.` / `Spacing.` tokens.
-- Apply **surface context** rules from §2 — especially `onBrand` / `onStrong` on iOS.
+- **iOS:** token-aware layout primitives (§4); `Label` with `Typography`, `Spacing`, `Radius`, and `SemanticColor` tokens. When catalogue tokens don't fit: `SemanticColor.{Fill,Icon,Text}.custom(_:)` (light/dark/high-contrast) or an `IconAsset` type (SVG, template, 48×48 pt) via `.custom(_:)`. Interactive custom containers: `PressableBehavior` (UIView with children) or `PressAnimation` (UIControl) — always wire a tap action.
+- **Android:** `Surface` plus Compose `Column`/`Row` with `Spacings`; `Text`/`Heading`, `Colors`, and `Shapes` tokens. When catalogue tokens don't fit: `Colors.Custom` / `Colors.CustomBrush` or `Icons.CustomIcon` / `Icons.CustomIconRes`.
+- **Both:** apply surface context from §2 — explicit `onBrand`* / `on*Strong` text and icon tokens on iOS coloured fills; auto-resolve on Android. Avoid `Spacings.Custom` unless the standard scale (§4) genuinely won't work.
 
 ### Do not
 
-- Import web `braid-design-system` components into native apps.
-- Add arbitrary shadows or elevation to cards and lists (§7).
-- Skip accessible names on custom icon-only or interactive controls (§8).
-
-Shared rules: [design system overview §9](systems.md#9-custom-and-bespoke).
+- Import web `braid-design-system` into native apps.
+- Hardcode colours, spacing, or shadows (§2, §4, §7); add press or haptic feedback without a corresponding action (§10).
+- Skip accessible names on icon-only or interactive controls (§8).
+- Create custom colours that duplicate existing semantic tokens (iOS catches this at compile time in debug).
 
 ---
 
@@ -286,6 +315,7 @@ Haptics are **native-only** — not used on web. **iOS** provides built-in hapti
 
 These fire automatically — do not duplicate them in custom action handlers.
 
+
 | Component                                                    | Haptic                | Notes                                           |
 | ------------------------------------------------------------ | --------------------- | ----------------------------------------------- |
 | `Button`                                                     | `impactLight` on tap  | Set `isHapticsEnabled = false` to opt out       |
@@ -293,6 +323,7 @@ These fire automatically — do not duplicate them in custom action handlers.
 | `SingleSelectListItem`, `MultiSelectListItem`                | `selection`           | On tap                                          |
 | `TabBar`                                                     | `impactLight`         | When selecting a different tab                  |
 | `TextEditor`                                                 | `notifyWarning`       | When typing further past the character limit    |
+
 
 ### Android
 
