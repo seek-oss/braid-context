@@ -6,7 +6,7 @@ Braid is the themeable design system for the SEEK Group.
 
 **Themes included in this document:** `seekJobs` (SEEK Jobs).
 
-This document covers **shared foundations** — the cross-platform concepts and rules used across the Braid product suite: visual theme, semantic tones, typography roles, layout principles, iconography, and component composition. It describes *what* is shared and *when* to use it, not platform-specific token names or APIs.
+This document covers **shared foundations** — the cross-platform concepts and rules used across the Braid product suite: visual theme, semantic tones, typography roles, layout principles, iconography, and component composition. It describes _what_ is shared and _when_ to use it, not platform-specific token names or APIs.
 
 Where platforms differ — token naming, typography values, colour groupings, prominence levels — see **Platform guides**.
 
@@ -20,7 +20,6 @@ Where platforms differ — token naming, typography values, colour groupings, pr
 
 ### Section map
 
-
 | §   | Topic                  |
 | --- | ---------------------- |
 | 1   | Visual theme & style   |
@@ -33,7 +32,6 @@ Where platforms differ — token naming, typography values, colour groupings, pr
 | 8   | Accessibility          |
 | 9   | Custom and bespoke     |
 | 10  | Do's and Don'ts        |
-
 
 ---
 
@@ -54,7 +52,6 @@ Braid provides a shared spectrum of `Tones`, used across the entire component su
 
 ### Semantic tones
 
-
 | Tone       | Role                                           |
 | ---------- | ---------------------------------------------- |
 | `critical` | High risk, High urgency, Error, Failed, Delete |
@@ -63,9 +60,7 @@ Braid provides a shared spectrum of `Tones`, used across the entire component su
 | `info`     | Help, Advice, Updated, Scheduled               |
 | `promote`  | Active, Beta, Promotional                      |
 
-
 ### Brand accent tones
-
 
 | Tone          | Role                                                                                               |
 | ------------- | -------------------------------------------------------------------------------------------------- |
@@ -73,9 +68,7 @@ Braid provides a shared spectrum of `Tones`, used across the entire component su
 | `formAccent`  | A step down from brandAccent, used to emphasize actions. May be used repeatedly on the same screen |
 | `brand`       | Hero banner backgrounds                                                                            |
 
-
 ### Neutral and surface tones
-
 
 | Tone        | Role                                                                      |
 | ----------- | ------------------------------------------------------------------------- |
@@ -84,9 +77,7 @@ Braid provides a shared spectrum of `Tones`, used across the entire component su
 | `neutral`   | Body copy, Text, Headings, default Buttons, TextLinks                     |
 | `secondary` | Optional and supporting text (foreground only)                            |
 
-
 ### Link and focus tones
-
 
 | Tone          | Role                             |
 | ------------- | -------------------------------- |
@@ -95,17 +86,14 @@ Braid provides a shared spectrum of `Tones`, used across the entire component su
 | `focus`       | Keyboard focus outline (border)  |
 | `field`       | Default field outlines (border)  |
 
-
 ### Prominence levels
 
 Each tone may provide prominence levels to adjust its **visual weight**, not semantic meaning. Available levels vary by tone and platform.
-
 
 | Platform               | Prominence levels                        | Examples                                  |
 | ---------------------- | ---------------------------------------- | ----------------------------------------- |
 | Web                    | `Soft` → `Light` → `(base)`              | `criticalLight`, `criticalSoft`           |
 | Native (iOS & Android) | `Weakest` → `Weak` → `(base)` → `Strong` | `criticalWeakest`, `criticalStrong` (iOS) |
-
 
 Native platforms use different naming for equivalent levels (e.g. Android `CriticalWeakest` ≈ iOS `criticalWeakest`).
 
@@ -124,7 +112,6 @@ The Braid theme `seekJobs` uses the custom font family `SeekSans`.
 
 Note: iOS and Android only expose heading levels `1` and `2`. Heading levels `3` and `4` are web and email only.
 
-
 | Level | Role                                           |
 | ----- | ---------------------------------------------- |
 | `1`   | Page titles, hero headings. Limit 1 per screen |
@@ -132,9 +119,7 @@ Note: iOS and Android only expose heading levels `1` and `2`. Heading levels `3`
 | `3`   | Subsection headings (web only)                 |
 | `4`   | Minor headings, card titles (web only)         |
 
-
 ### Text
-
 
 | Size       | Role                                   |
 | ---------- | -------------------------------------- |
@@ -143,18 +128,15 @@ Note: iOS and Android only expose heading levels `1` and `2`. Heading levels `3`
 | `small`    | Metadata, captions, secondary labels   |
 | `xsmall`   | Fine print, legal copy (use sparingly) |
 
-
 #### Text weight
 
 SeekSans ships **Regular** and **Medium** font files only — there is no separate Bold face. Both `medium` and `strong` resolve to the Medium font file. Use `stong` for emphasis and avoid using `medium`.
-
 
 | Weight    | Role                                             | Available on       |
 | --------- | ------------------------------------------------ | ------------------ |
 | `regular` | Default body                                     | Web, native, email |
 | `strong`  | Emphasis                                         | Web, native, email |
 | `medium`  | **Avoid** — legacy; renders the same as `strong` | Web and iOS only   |
-
 
 ---
 
@@ -167,7 +149,6 @@ Braid provides a standard white space scale across the entire component suite. A
 Note: `xxxxsmall` is available on Native platforms only. `xxxsmall` is available on Native and Email. `gutter` is available on Web, Android, and Email.
 
 **gutter** is a semantic value used to maintain consistent insets across components, e.g. Card, Alert, Button, etc. This value should only be used for aligning to this concept.
-
 
 | Space       | Role                                                                                                            |
 | ----------- | --------------------------------------------------------------------------------------------------------------- |
@@ -185,11 +166,9 @@ Note: `xxxxsmall` is available on Native platforms only. `xxxsmall` is available
 | `xxxlarge`  | Page-level rhythm                                                                                               |
 | `custom`    | Variable spacing value (Android only)                                                                           |
 
-
 ### Layout components
 
 Layout spacing is always applied using Braid spacing tokens, not hardcoded values. The core layout patterns — vertical stacking, horizontal arrangement, overlapping layers, and dividers — exist on all platforms, though the component names differ.
-
 
 | Concept          | Web                  | iOS               | Android                          |
 | ---------------- | -------------------- | ----------------- | -------------------------------- |
@@ -198,7 +177,6 @@ Layout spacing is always applied using Braid spacing tokens, not hardcoded value
 | Overlay / layer  | `Box`                | `ZStack`          | `Surface` / Compose `Box`        |
 | Divider          | `Divider`            | `Divider`         | `Divider`                        |
 | Page shell       | `Page`               | —                 | `Page` / `LazyPage`              |
-
 
 Email uses a different layout paradigm (MJML table-based, `PageBlock` / `Card` / `Tiles`) with no direct equivalents to the components above — see the Email platform guide §4.
 
@@ -213,13 +191,11 @@ Email uses a different layout paradigm (MJML table-based, `PageBlock` / `Card` /
 
 Web and Native share the same icon suite and art grid. Icon naming follows the same family names across platforms, though the syntax differs. **Email has a limited set of 8 named icons** — see the Email platform guide §5.
 
-
 | Concept             | Web                 | iOS                  | Android              | Email                     |
 | ------------------- | ------------------- | -------------------- | -------------------- | ------------------------- |
 | Colour              | `tone` prop         | `foregroundColor`    | `tint`: `IconColor`  | image-based; no tone prop |
 | Accessibility label | `title` + `titleId` | `accessibilityLabel` | `contentDescription` | `alt` prop                |
 | Icon button         | `ButtonIcon`        | `IconButton`         | `IconButton`         | `Button` with `icon` prop |
-
 
 - Icons are always sized relative to text — use the icon size that matches the text size in the same context.
 - Colour is always applied via tokens, never hardcoded.
@@ -286,12 +262,12 @@ Platform-specific accessibility (keyboard, screen readers, APIs): see §8 in **P
 
 ### 80/20 rule
 
-About **80%** of UI should be built from Braid components (§6). When a pattern is not covered, custom UI is acceptable if it still follows Braid foundations.
+About **80%** of UI should be built from Braid components. When necessary, custom UI is acceptable if it still follows Braid foundations.
 
 ### When custom UI is appropriate
 
-- The interaction or layout is **genuinely unique** to the product and not a candidate for a Braid component
-- A Braid component is close but needs **composition** of existing primitives — not a fork with custom styling
+- The interaction or layout is **genuinely unique** to the product
+- Creating the custom element will **add real value** to the product experience
 - You have confirmed **no existing Braid component** fits (check platform guides and Backstage docs)
 
 ### Rules for custom work
@@ -300,12 +276,6 @@ About **80%** of UI should be built from Braid components (§6). When a pattern 
 - Prefer **layout components** (§4) and platform primitives (`Box`, `Surface`, etc.) over raw markup.
 - Maintain **accessibility** (§8) — custom controls need labels, focus, contrast, and keyboard support where applicable.
 - Do not **override** Braid component styles in ways that break focus rings, ARIA, or semantic tones.
-
-### Contribute back
-
-If a custom pattern repeats across teams, **propose it to Braid** rather than maintaining a fork.
-
-Platform-specific constraints for custom UI: see §9 in **Platform guides**.
 
 ---
 

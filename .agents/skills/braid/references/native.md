@@ -256,10 +256,10 @@ Tab bar shadow is configured via `UITabBar.applyBraidAppearance` using `Surface.
 
 Native apps should use **Braid Native components** first. Custom UI must still use **semantic tokens** and platform layout patterns — not hardcoded colours or arbitrary spacing.
 
-### When building custom views
+### Allowed custom patterns
 
 - **iOS:** compose with `VStack`, `HStack`, `Label`, and `SemanticColor` / `Spacing` tokens.
-- **Android:** compose with Compose `Column`/`Row`, Braid `Surface`, and `Colors.`_ / `Spacing._` tokens.
+- **Android:** compose with Compose `Column`/`Row`, Braid `Surface`, and `Colors.` / `Spacing.` tokens.
 - Apply **surface context** rules from §2 — especially `onBrand` / `onStrong` on iOS.
 
 ### Do not

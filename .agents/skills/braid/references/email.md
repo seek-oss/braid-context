@@ -205,13 +205,13 @@ Do not attempt to apply shadow styles manually — they will not render consiste
 
 ## 9. Custom and bespoke
 
-Email templates should use **`@seek/braid-email-ui` components** for all standard patterns. Custom elements are acceptable when Braid does not provide a component — but must still use **theme tokens** via `useTokens()` and `useAtoms()`.
+Email templates should use `@seek/braid-email-ui` components for all standard patterns. Custom elements are acceptable when Braid does not provide a component — but must still use **theme tokens** via `useTokens()` and `useAtoms()`.
 
 ### Allowed custom patterns
 
-- **`Icon` with `url`** — custom icon images hosted on a CDN (§5).
-- **`useTokens()` / `useAtoms()`** — bespoke section backgrounds, borders, or spacing outside standard components.
-- **`BackgroundRenderer`** — differentiated section fills when layouts cannot be expressed via `PageBlock` or `Card`.
+- `Icon` with `url` — custom icon images hosted on a CDN (§5).
+- `useTokens()` / `useAtoms()` — bespoke section backgrounds, borders, or spacing outside standard components.
+- `BackgroundRenderer` — differentiated section fills when layouts cannot be expressed via `PageBlock` or `Card`.
 
 ### Do not
 

@@ -234,19 +234,17 @@ Do not remove or shrink focus styles for keyboard users. Do not bypass **focus-v
 
 Prefer Braid components and component props over custom CSS. When Braid does not cover a need, build on **`Box`**, **`vars`**, and **atoms** — not raw HTML and inline styles.
 
-### Last resort patterns
+### Allowed custom patterns
 
-- **`Box`** — lowest-level primitive for applying theme tokens to a single element (padding, background, border, outline).
-- **`vars.*` and atoms** — use theme variables and vanilla-extract atoms for one-off styling; do not hardcode values.
-- **`style={{ ... }}`** — only when component props and atoms cannot express the layout; document why.
+- `Box` — lowest-level primitive for applying theme tokens to a single element (padding, background, border, outline).
+- `vars.` and atoms\*\* — use theme variables and vanilla-extract atoms for one-off styling; do not hardcode values.
+- `style={{ ... }}` — only when component props and atoms cannot express the layout; document why.
 
 ### Do not
 
 - Override Braid component CSS to change tones, focus rings, or spacing — compose with Braid components instead.
 - Use raw `<div>`, `<button>`, or `<p>` when `Box`, `Button`, or `Text` would work.
 - Hardcode `box-shadow`, colours, or spacing outside the token scale (§2, §4, §7).
-
-Shared rules: [design system overview §9](systems.md#9-custom-and-bespoke).
 
 ---
 
