@@ -205,20 +205,19 @@ Do not attempt to apply shadow styles manually — they will not render consiste
 
 ## 9. Custom and bespoke
 
-Email templates should use `@seek/braid-email-ui` components for all standard patterns. Custom elements are acceptable when Braid does not provide a component — but must still use **theme tokens** via `useTokens()` and `useAtoms()`.
+Follow [systems.md §9](systems.md#9-custom-and-bespoke): prefer `@seek/braid-email-ui` components; resolve all styling from **theme tokens**, not hardcoded values. New shared templates belong in [mjml-react-email-templates](https://github.com/SEEK-Jobs/mjml-react-email-templates) (§11) — not ad-hoc copies.
 
 ### Allowed custom patterns
 
-- `Icon` with `url` — custom icon images hosted on a CDN (§5).
-- `useTokens()` / `useAtoms()` — bespoke section backgrounds, borders, or spacing outside standard components.
-- `BackgroundRenderer` — differentiated section fills when layouts cannot be expressed via `PageBlock` or `Card`.
+- **Components first:** `PageBlock` (`background` + `backgroundPadding` together), `Card`/`CardBlock`, and component `tone` props before token-level styling.
+- **Token hooks:** `useTokens()` for colours and spacing; `useAtoms()` for bespoke padding, borders (§7), and section layout — pick `foreground` `.light`/`.dark` explicitly in custom styles (§2; most clients render light mode only).
+- **Escape hatches:** `Icon` with CDN `url` when not in the named set (§5); `BackgroundRenderer` for section fills that `PageBlock`/`Card` cannot express.
 
 ### Do not
 
-- Hardcode hex colours or px spacing — resolve values from `useTokens()` (§2, §4).
-- Use raw MJML for content Braid components already cover (§6).
-- Apply CSS `box-shadow` — email clients do not support it reliably (§7).
-- Embed images — serve from a CDN (§11).
+- Hardcode hex colours or px spacing — use `useTokens()` (§2, §4).
+- Use raw MJML for content Braid components already cover (§6); structural MJML shell only.
+- Apply `box-shadow` (§7) or inline/embedded images — CDN URLs only (§11).
 
 ---
 

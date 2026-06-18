@@ -232,19 +232,21 @@ Do not remove or shrink focus styles for keyboard users. Do not bypass **focus-v
 
 ## 9. Custom and bespoke
 
-Prefer Braid components and component props over custom CSS. When Braid does not cover a need, build on **`Box`**, **`vars`**, and **atoms** — not raw HTML and inline styles.
+Follow [systems.md §9](systems.md#9-custom-and-bespoke): prefer Braid components; build on **theme tokens**, not hardcoded CSS. Bespoke UI shared across SEEK apps belongs in a **Metropolis** package — not copied into each codebase.
 
 ### Allowed custom patterns
 
-- `Box` — lowest-level primitive for applying theme tokens to a single element (padding, background, border, outline).
-- `vars.` and atoms\*\* — use theme variables and vanilla-extract atoms for one-off styling; do not hardcode values.
-- `style={{ ... }}` — only when component props and atoms cannot express the layout; document why.
+- **Layout:** `Box` props and layout components (`Stack`, `Columns`, `Inline`, etc. — §4) for composition.
+- **Stylesheets:** `vars` and `atoms` from `braid-design-system/css`; add `responsiveStyle`, `outlineStyle`, `colorModeStyle`, `globalTextStyle`, or `globalHeadingStyle` when needed. Use `Box` for `background` — `atoms` cannot set backgrounds (Braid applies child tone context via React).
+- **Escape hatches:** `IconRenderer` for custom icons inside `Text`/`Heading`; `Box` `style={{}}` only with `background="customLight"` or `"customDark"` for non-token fills. `useColor` / `useSpace` only when `Box` or `vars` cannot express the need.
+- **Interactive custom elements:** semantic `Box component="button"` (etc.) for built-in focus; `outline="focus"` plus `tabIndex` on focusable non-interactive elements — see §7/`outlineStyle` for indirect focus.
 
 ### Do not
 
-- Override Braid component CSS to change tones, focus rings, or spacing — compose with Braid components instead.
-- Use raw `<div>`, `<button>`, or `<p>` when `Box`, `Button`, or `Text` would work.
-- Hardcode `box-shadow`, colours, or spacing outside the token scale (§2, §4, §7).
+- Override Braid component CSS or bypass `focus-visible` (§7, §8).
+- Use raw `<div>`, `<button>`, or `<p>` when Braid components fit.
+- Hardcode colours, spacing, or shadows outside tokens (§2, §4, §7).
+- Pick semantic `background` or `boxShadow` tokens by appearance alone — use them in their designed context.
 
 ---
 
