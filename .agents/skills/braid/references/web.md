@@ -224,10 +224,6 @@ Do not remove or shrink focus styles for keyboard users. Do not bypass **focus-v
 
 ## 8. Accessibility
 
-Shared Braid accessibility rules and WCAG resources: [design system overview §8](systems.md#8-accessibility).
-
-**On web:**
-
 - **Keyboard / focus:** Tab order must match visual and task order; use **focus-visible** for keyboard focus. Focus tokens and styling: §7. Manage focus in modals and dialogs (move focus in on open, trap while open, return to trigger on close).
 - **`ButtonIcon`:** required `label` is injected into **`aria-label`** — action-oriented text (e.g. "Close dialog"), not icon names.
 - **Composition:** prefer `<button>`, `<a href>`, and landmarks (`<main>`, `<nav>`, etc.); use **`HiddenVisually`** (§4) for screen-reader-only text; respect **`prefers-reduced-motion`** for custom animation.

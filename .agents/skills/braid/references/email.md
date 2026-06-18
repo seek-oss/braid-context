@@ -196,10 +196,6 @@ Do not attempt to apply shadow styles manually — they will not render consiste
 
 ## 8. Accessibility
 
-Shared Braid accessibility rules and WCAG resources: [design system overview §8](systems.md#8-accessibility).
-
-**On email:**
-
 - Email has no keyboard navigation or interactive focus states — WCAG interactive rules do not apply.
 - **Images and icons:** always provide `alt` text when the image or icon conveys meaning. Use `alt=""` for decorative images.
 - **Colour contrast:** semantic tokens on `seekJobs` are designed for contrast — verify any custom colour combinations.

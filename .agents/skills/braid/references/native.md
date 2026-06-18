@@ -246,10 +246,6 @@ Tab bar shadow is configured via `UITabBar.applyBraidAppearance` using `Surface.
 
 ## 8. Accessibility
 
-Shared Braid accessibility rules and WCAG resources: [design system overview §8](systems.md#8-accessibility).
-
-**On native:**
-
 - **Labels:** use §5 props (`accessibilityLabel`, `contentDescription`); names must describe the action (overview §8).
 - **Text scaling:** see §3 (Dynamic Type, **sp**).
 - **Haptics** (§10) reinforce interaction; they do not replace visible feedback or accessible names.
