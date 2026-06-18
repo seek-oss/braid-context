@@ -39,18 +39,18 @@ Shared brand intent for **SEEK Jobs** is in the [design system overview §1](sys
 
 Colour tokens are organised by **group**. Each group defines where a token applies in the UI.
 
-| Group             | Purpose                                    |
-| ----------------- | ------------------------------------------ |
+| Group             | Purpose                                 |
+| ----------------- | --------------------------------------- |
 | `foregroundColor` | Text, Icons                             |
 | `backgroundColor` | Backgrounds, fills (e.g. Button, Alert) |
-| `borderColor`     | Borders                                    |
+| `borderColor`     | Borders                                 |
 
 ### Prominence levels
 
-| Level    | Role                                                 |
-| -------- | ---------------------------------------------------- |
-| `light`  | Lighter tints for section fills                      |
-| `(base)` | Default tone for text, backgrounds and borders       |
+| Level    | Role                                           |
+| -------- | ---------------------------------------------- |
+| `light`  | Lighter tints for section fills                |
+| `(base)` | Default tone for text, backgrounds and borders |
 
 ### Interactive tones
 
@@ -86,11 +86,11 @@ Sizes are **px**; **line gap** is the Capsize line-gap token (implementation com
 
 #### Text weight
 
-| Prop      | CSS weight | Font file | Notes                                             |
-| --------- | ---------- | --------- | ------------------------------------------------- |
-| `regular` | 400        | Regular   | Default body                                      |
-| `strong`  | 700        | Medium    | Use for emphasis                                  |
-| `medium`  | 600        | Medium    | **Avoid** — legacy; renders the same as `strong`  |
+| Prop      | CSS weight | Font file | Notes                                            |
+| --------- | ---------- | --------- | ------------------------------------------------ |
+| `regular` | 400        | Regular   | Default body                                     |
+| `strong`  | 700        | Medium    | Use for emphasis                                 |
+| `medium`  | 600        | Medium    | **Avoid** — legacy; renders the same as `strong` |
 
 SeekSans web fonts map CSS weights 500–700 to the same Medium `@font-face` — see [seeksans.css](https://www.seek.com/static/shared-web/seeksans.css).
 
@@ -132,8 +132,6 @@ SeekSans web fonts map CSS weights 500–700 to the same Medium `@font-face` —
 | `HiddenVisually`     | Hides content visually while keeping it accessible to screen readers          |
 
 - Web is the only platform with responsive layout primitives (`Columns` collapse, `Hidden` breakpoints, `Tiles` column count per breakpoint).
-- `Bleed` on web is a standalone layout component. On native it exists only as a prop on specific components.
-- `ContentBlock` and `PageBlock` are web-only — native platforms handle max-width constraints at the OS/app shell level.
 
 ---
 
@@ -184,19 +182,19 @@ Prefer Braid components and **vars** / atoms over custom CSS. Do not hard-code s
 
 This table shows commonly used components and their key props. Do not invent props — see the installed `braid-design-system` package for full type definitions.
 
-| Component      | Available properties                                                                                                                   |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `Button`       | `id` · `size` · `tone` · `variant` · `bleed` · `loading` · `type` · `icon` · `iconPosition` · `onClick` · `data` · `children`          |
+| Component      | Available properties                                                                                                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Button`       | `id` · `size` · `tone` · `variant` · `bleed` · `loading` · `type` · `icon` · `iconPosition` · `onClick` · `data` · `children`                                                              |
 | `ButtonIcon`   | `id` · `icon`(required) · `label`(required) · `size` · `tone` (`neutral` · `formAccent`) · `variant` (`soft` · `transparent`) · `type` · `bleed` · `tooltipPlacement` · `onClick` · `data` |
-| `Card`         | `tone` (`promote` · `formAccent`) · `height` · `component` · `data`                                                                  |
-| `Heading`      | `level`(required) · `weight` · `align` · `icon` · `maxLines` · `component` · `data`                                                    |
-| `Text`         | `size` · `tone` · `weight` · `align` · `icon` · `maxLines` · `baseline` · `component` · `data`                                         |
-| `TextLink`     | `href`(required) · `weight` · `showVisited` · `hitArea` · `icon` · `iconPosition` · `data`                                             |
-| `PageBlock`    | `width` · `component` · `data`                                                                                                         |
-| `ContentBlock` | `width` · `align` · `data`                                                                                                             |
-| `Badge`        | `tone` · `weight` · `bleedY` · `title` · `data`                                                                                        |
-| `List`         | `size` · `space` · `tone` · `type` · `icon` · `start` · `data`                                                                         |
-| `Divider`      | `weight`                                                                                                                               |
+| `Card`         | `tone` (`promote` · `formAccent`) · `height` · `component` · `data`                                                                                                                        |
+| `Heading`      | `level`(required) · `weight` · `align` · `icon` · `maxLines` · `component` · `data`                                                                                                        |
+| `Text`         | `size` · `tone` · `weight` · `align` · `icon` · `maxLines` · `baseline` · `component` · `data`                                                                                             |
+| `TextLink`     | `href`(required) · `weight` · `showVisited` · `hitArea` · `icon` · `iconPosition` · `data`                                                                                                 |
+| `PageBlock`    | `width` · `component` · `data`                                                                                                                                                             |
+| `ContentBlock` | `width` · `align` · `data`                                                                                                                                                                 |
+| `Badge`        | `tone` · `weight` · `bleedY` · `title` · `data`                                                                                                                                            |
+| `List`         | `size` · `space` · `tone` · `type` · `icon` · `start` · `data`                                                                                                                             |
+| `Divider`      | `weight`                                                                                                                                                                                   |
 
 ---
 
@@ -278,4 +276,3 @@ Shared rules: [design system overview §9](systems.md#9-custom-and-bespoke).
 ### Source of truth
 
 Braid web source: [seek-oss/braid-design-system](https://github.com/seek-oss/braid-design-system). Verify props and APIs against installed `braid-design-system` package types when building beyond the tables above.
-

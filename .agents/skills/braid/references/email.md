@@ -38,15 +38,15 @@ Shared brand intent for **SEEK Jobs** is in the [design system overview §1](sys
 
 Colour tokens are organised by **group**. Each group defines where a token applies in the UI.
 
-| Group              | Purpose               |
-| ------------------ | --------------------- |
-| `color.foreground` | Text, icons           |
-| `color.background` | Backgrounds, fills    |
-| `border.color`     | Borders               |
+| Group              | Purpose            |
+| ------------------ | ------------------ |
+| `color.foreground` | Text, icons        |
+| `color.background` | Backgrounds, fills |
+| `border.color`     | Borders            |
 
 ### Prominence levels
 
-| Level    |Role                                            |
+| Level    | Role                                           |
 | -------- | ---------------------------------------------- |
 | `soft`   | Soft button backgrounds                        |
 | `light`  | Lighter tints for section fills                |
@@ -58,11 +58,11 @@ Colour tokens are organised by **group**. Each group defines where a token appli
 - **Background** values are plain hex strings.
 - **Foreground and border** tokens return `{ light, dark }` objects — `.light` / `.dark` are **color-mode variants** for light vs dark backgrounds, not prominence. Braid components resolve these via `BackgroundLightnessProvider`; pick `.light` or `.dark` explicitly only in custom styles (most email clients render light mode only).
 
-| Access       | Pattern                                      | Example                                       |
-| ------------ | -------------------------------------------- | --------------------------------------------- |
-| Background   | `useTokens().color.background.{tokenName}`   | `useTokens().color.background.positiveLight`  |
-| Foreground   | `useTokens().color.foreground.{tone}.{mode}` | `useTokens().color.foreground.critical.light` |
-| Border       | `useTokens().border.color.{tone}.{mode}`     | `useTokens().border.color.formAccent.light`   |
+| Access     | Pattern                                      | Example                                       |
+| ---------- | -------------------------------------------- | --------------------------------------------- |
+| Background | `useTokens().color.background.{tokenName}`   | `useTokens().color.background.positiveLight`  |
+| Foreground | `useTokens().color.foreground.{tone}.{mode}` | `useTokens().color.foreground.critical.light` |
+| Border     | `useTokens().border.color.{tone}.{mode}`     | `useTokens().border.color.formAccent.light`   |
 
 ### Key rules
 
@@ -78,9 +78,9 @@ Colour tokens are organised by **group**. Each group defines where a token appli
 
 #### Heading weight
 
-| Platform | Heading weight         |
-| -------- | ---------------------- |
-| Email    | strong (700)           |
+| Platform | Heading weight |
+| -------- | -------------- |
+| Email    | strong (700)   |
 
 #### Text weight
 
@@ -93,8 +93,8 @@ Colour tokens are organised by **group**. Each group defines where a token appli
 
 ### Line height model
 
-| Platform | Model                                                                                                                                                                      |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Platform | Model                                                                                     |
+| -------- | ----------------------------------------------------------------------------------------- |
 | Email    | Explicit `lineHeight` in **px** per style, sourced directly from `seekJobs` theme tokens. |
 
 **Links:** `underline` decoration by default, using the `link` foreground token.
@@ -103,13 +103,13 @@ Colour tokens are organised by **group**. Each group defines where a token appli
 
 ## 4. Layout and space scale
 
-**Token access:** `useTokens().space.`* for raw values, or `useAtoms({ paddingX: 'small' })` for ergonomic padding and border props. Spacing values are in **px** — see the shared space scale in [§4 of the design system overview](systems.md#4-layout-and-space-scale).
+**Token access:** `useTokens().space.`\* for raw values, or `useAtoms({ paddingX: 'small' })` for ergonomic padding and border props. Spacing values are in **px** — see the shared space scale in [§4 of the design system overview](systems.md#4-layout-and-space-scale).
 
 `gutter` is a semantic value for consistent component insets (Card, Button). `xxxxsmall` is not available on email.
 
 ### Layout components
 
-Email uses **MJML table-based layout** — there is no `Stack`, `Columns`, `Box`, `Inline`, `Spread`, `Hidden`, or `HiddenVisually` as on web.
+Email uses **MJML table-based layout** with minimal layout components.
 
 | Component   | Purpose                                                                                         |
 | ----------- | ----------------------------------------------------------------------------------------------- |
@@ -118,8 +118,8 @@ Email uses **MJML table-based layout** — there is no `Stack`, `Columns`, `Box`
 | `Card`      | Bordered surface card — must be rendered inside `CardBlock`                                     |
 | `Tiles`     | Multi-column layout; collapses to single column on mobile by default (`collapseBelow="tablet"`) |
 
-- **Content width:** Set on the outer MJML shell (e.g. `MjmlBody` width in the template wrapper) — not via `PageBlock`. Theme tokens define `contentWidth` values (e.g. `small` 660px) for reference when configuring the shell.
-- `**PageBlock` gutters:** Applies horizontal inset using the `small` space token (`pageBlockGutter`) — not a `width` prop.
+- **Content width:** Set on the outer MJML shell (e.g. `MjmlBody` width in the template wrapper). Theme tokens define `contentWidth` values (e.g. `small` 660px) for reference when configuring the shell.
+- `PageBlock` gutters: Applies horizontal inset using the `small` space token (`pageBlockGutter`).
 - Layout is primarily **single-column**. Use `Tiles` for multi-column — be cautious, as multi-column can break in some email clients.
 - Apply all spacing via `paddingBottom` props on components or `useAtoms()` — do not write inline CSS for spacing.
 
