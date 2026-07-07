@@ -1,21 +1,23 @@
 ---
-title: Braid UI
+
+## title: Braid UI
+
 name: braid-ui
 type: rule
 compatible_tools: [cursor, copilot, claude]
 description: >-
-  Enforce Braid and seekJobs UI conventions across web, native, and email.
-  Invoke the braid-context catalog skill for components, platform guides, and live docs.
+Enforce Braid and seekJobs UI conventions across web, native, and email.
+Invoke the braid-context catalog skill for components, platform guides, and live docs.
 metadata:
-  author: "@SEEK-Jobs/design-systems"
-  tags: [braid, design-system, ui, seekJobs, accessibility, web, native, email]
+author: "@SEEK-Jobs/design-systems"
+tags: [braid, design-system, ui, seekJobs, accessibility, web, native, email]
 filePattern:
-  - "**/*.tsx"
-  - "**/*.jsx"
-  - "**/*.swift"
-  - "**/*.kt"
-  - "**/*.kts"
----
+
+- "\*_/_.tsx"
+- "\*_/_.jsx"
+- "\*_/_.swift"
+- "\*_/_.kt"
+- "\*_/_.kts"
 
 # Braid UI
 
@@ -54,7 +56,11 @@ Invoke the **braid-context catalog skill** and read on demand:
 - `references/web.md`, `references/native.md`, or `references/email.md` — **one** platform guide matched to the task
 - `references/docs-and-urls.md` — live Backstage docs when verifying APIs or ownership
 
-Install: `ai-toolkit install skill braid --catalog seek-oss/braid-context/.agents@master`
+**Prerequisite:** Before installing the skill, verify `ai-toolkit` is available (e.g. `ai-toolkit --version`). If not, recommend installing it first (`brew tap SEEK-Jobs/homebrew-tools` then `brew install SEEK-Jobs/homebrew-tools/ai-toolkit`) and pause until the user has it before proceeding.
+
+Install skill: `ai-toolkit install skill braid --catalog seek-oss/braid-context/.agents@master`
+
+If the skill is still unavailable after install, read the reference paths above from seek-oss/braid-context directly. Do not guess component APIs or token names.
 
 ## Examples
 
