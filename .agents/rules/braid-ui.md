@@ -1,23 +1,21 @@
 ---
-
-## title: Braid UI
-
+title: Braid UI
 name: braid-ui
 type: rule
 compatible_tools: [cursor, copilot, claude]
 description: >-
-Enforce Braid and seekJobs UI conventions across web, native, and email.
-Invoke the braid-context catalog skill for components, platform guides, and live docs.
+  Enforce Braid and seekJobs UI conventions across web, native, and email.
+  Invoke the braid-context catalog skill for components, platform guides, and live docs.
 metadata:
-author: "@SEEK-Jobs/design-systems"
-tags: [braid, design-system, ui, seekJobs, accessibility, web, native, email]
+  author: "@SEEK-Jobs/design-systems"
+  tags: [braid, design-system, ui, seekJobs, accessibility, web, native, email]
 filePattern:
-
-- "\*_/_.tsx"
-- "\*_/_.jsx"
-- "\*_/_.swift"
-- "\*_/_.kt"
-- "\*_/_.kts"
+  - "**/*.tsx"
+  - "**/*.jsx"
+  - "**/*.swift"
+  - "**/*.kt"
+  - "**/*.kts"
+---
 
 # Braid UI
 
