@@ -74,6 +74,14 @@ If the skill is still unavailable after install, read the reference paths above 
 
 ❌ Promotional or brand accent tone for error or delete states
 
+## Compliance
+
+When applying this rule in a response or code change:
+
+- Name the Braid components, tokens, or platform APIs you used.
+- If no Braid primitive fits, say so before proposing raw markup or custom styling.
+- When existing code violates these constraints, flag the violation briefly and propose a Braid-aligned fix.
+
 ## Conflict resolution
 
 - User instructions override these defaults unless they break accessibility or brand constraints
