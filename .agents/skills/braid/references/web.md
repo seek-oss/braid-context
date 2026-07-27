@@ -121,6 +121,7 @@ SeekSans web fonts map CSS weights 500–700 to the same Medium `@font-face` —
 | `Stack`              | Vertical rhythm with uniform spacing between children                         |
 | `Columns` + `Column` | Horizontal multi-column layout with responsive widths, collapse, and ordering |
 | `Inline`             | Flowing horizontal content that wraps across lines                            |
+| `Actions`            | Spacing and responsive layout for Buttons                                     |
 | `Tiles`              | Wraps children in a fixed column count, left-to-right then top-to-bottom      |
 | `Spread`             | Distributes children with equal spacing (horizontal or vertical)              |
 | `Box`                | Lowest-level primitive for applying theme-based styles to a single element    |
@@ -131,6 +132,7 @@ SeekSans web fonts map CSS weights 500–700 to the same Medium `@font-face` —
 | `Hidden`             | Hides children at specified breakpoints or on print                           |
 | `HiddenVisually`     | Hides content visually while keeping it accessible to screen readers          |
 
+- Default to **`Actions`** for buttons; use `Inline` or `Columns` only for custom layout.
 - Web is the only platform with responsive layout primitives (`Columns` collapse, `Hidden` breakpoints, `Tiles` column count per breakpoint).
 
 ---
